@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas Greeting Card</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('https://blogger.googleusercontent.com/img/a/AVvXsEi-5uy0lEL3pElu3uiAp3JElNWnQ9vf94WUMdZlWNwhAOMUQWhyjpdYziZ-GUMVrgUIDR-gmlN2VUQuHNzXTp7YYffewBv689Xv8vgrnUOHG3OuCX8yDbMGx4JfEpusZs43ULmXuRSV0VI-nI-AmgPcQG99in0OLSA07Lh4aguy0OEYdhroJu8A2Jyq2KM') 
+                no-repeat center center/cover;
+            flex-direction: column;
+        }
+
+        .card-container {
+            perspective: 1000px;
+            margin-bottom: 20px; /* Spacing between card and button */
+        }
+
+        .card {
+            width: 450px; /* Increased width */
+            height: 620px; /* Increased height */
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.8s;
+        }
+
+        .card.flip {
+            transform: rotateY(180deg);
+        }
+
+        .card .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .card .front {
+            background: url('https://blogger.googleusercontent.com/img/a/AVvXsEj17I6xRlXH1EH7znRIGAWV_MCOTVskHmBFos9qCjwBrbevjUoFAQpdHwGjBb-z_blDEYvtIjoNPgQVFIUaUPycg2TmtVNuemBlsYggWfBnt_QeemydLEf-DgiuMzyysFKINrfTmDGh4ml1UHfWfr-MwXo-jidUp1wcQzlnIqKoXFtVYOqjDMd0apr2Y8I')
+                no-repeat center center/cover;
+        }
+
+        .card .back {
+            background: url('https://blogger.googleusercontent.com/img/a/AVvXsEjj4DNpIHdqlSI0PwN1TPp1tc0vzWhwf6HRxhSpMmQSC7rtx99tP-gr-UFX4wk8xS_nWekd0y6i8sKVorXJay0vlmAM2mS_lEqghfEFuSuH3vXaaWP-z8tDGEJ0ckQwd7RX7hwXVRUOZ44CZtsMEFAfRVOekJAHTgk-MEoL5hZZeET3YKm_aP2xEUk520g')
+                no-repeat center center/cover;
+            transform: rotateY(180deg);
+        }
+
+        .flip-button {
+            padding: 12px 30px;
+            font-size: 18px;
+            color: white;
+            background: #d32f2f;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .flip-button:hover {
+            background: #b71c1c;
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <div class="card" id="card">
+            <div class="card-face front"></div>
+            <div class="card-face back"></div>
+        </div>
+    </div>
+    <button class="flip-button" onclick="flipCard()">Flip Card</button>
+
+    <script>
+        function flipCard() {
+            const card = document.getElementById('card');
+            card.classList.toggle('flip');
+        }
+    </script>
+</body>
+</html>
